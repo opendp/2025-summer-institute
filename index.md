@@ -123,7 +123,7 @@ that can be easily adopted by custodians of sensitive data to make data releases
 
 ## What is Open Differential Privacy? (OpenDP)
 
-OpenDP is a *community effort* to build a trustworthy and open-source suite of differential privacy tools 
+OpenDP is a **community effort** to build a trustworthy and open-source suite of differential privacy tools 
 that can be easily adopted by custodians of sensitive data to make data releases for research and exploration in the public interest.
 
 - Slack Workspace
@@ -133,7 +133,7 @@ that can be easily adopted by custodians of sensitive data to make data releases
 
 ## What is Open Differential Privacy? (OpenDP)
 
-OpenDP is a community effort to build a *trustworthy* and open-source suite of differential privacy tools 
+OpenDP is a community effort to build a **trustworthy** and open-source suite of differential privacy tools 
 that can be easily adopted by custodians of sensitive data to make data releases for research and exploration in the public interest.
 
 - designed in a way that facilitates writing proofs for each function
@@ -142,30 +142,30 @@ that can be easily adopted by custodians of sensitive data to make data releases
 
 ## What is Open Differential Privacy? (OpenDP)
 
-OpenDP is a community effort to build a trustworthy and *open-source* suite of differential privacy tools 
+OpenDP is a community effort to build a trustworthy and **open-source** suite of differential privacy tools 
 that can be easily adopted by custodians of sensitive data to make data releases for research and exploration in the public interest.
 
-- GitHub: https://github.com/opendp
-  - _OpenDP Library_
-  - Tumult Analytics
-  - SmartNoise SDK
-  - DP Wizard
+- Repositories
+  - [_OpenDP Library_](https://github.com/opendp/opendp)
+  - [Tumult Analytics](https://github.com/opendp/tumult-analytics)
+  - [SmartNoise SDK](https://github.com/opendp/smartnoise-sdk)
+  - [DP Wizard](https://github.com/opendp/dp-wizard)
 
 ## What is Open Differential Privacy? (OpenDP)
 
 OpenDP is a community effort to build a trustworthy and open-source suite of differential privacy tools 
-that can be _easily adopted_ by custodians of sensitive data to make data releases for research and exploration in the public interest.
+that can be **easily adopted** by custodians of sensitive data to make data releases for research and exploration in the public interest.
 
-- Documentation:
-  - _OpenDP Library_: https://docs.opendp.org
-  - Tumult Analytics: https://docs.tmlt.dev/platform/latest/index.html
-  - SmartNoise SDK: https://docs.smartnoise.org/
-  - DP Wizard: https://pypi.org/project/dp_wizard/
+- Documentation
+  - [_OpenDP Library_](https://docs.opendp.org)
+  - [Tumult Analytics](https://docs.tmlt.dev/platform/latest/index.html)
+  - [SmartNoise SDK](https://docs.smartnoise.org/)
+  - [DP Wizard](https://pypi.org/project/dp_wizard/)
 
 ## What is Open Differential Privacy? (OpenDP)
 
 OpenDP is a community effort to build a trustworthy and open-source suite of differential privacy tools 
-that can be easily adopted by custodians of sensitive data to make *data releases* for research and exploration in the public interest.
+that can be easily adopted by custodians of sensitive data to make **data releases** for research and exploration in the public interest.
 
 - descriptive statistics like counts, sums, means, quantiles
 - descriptive statistics under grouping, like contingency tables, cross-tabulations
@@ -175,7 +175,7 @@ that can be easily adopted by custodians of sensitive data to make *data release
 ## What is Open Differential Privacy? (OpenDP)
 
 OpenDP is a community effort to build a trustworthy and open-source suite of differential privacy tools 
-that can be easily adopted by custodians of sensitive data to make data releases for *research and exploration in the public interest*.
+that can be easily adopted by custodians of sensitive data to make data releases for **research and exploration in the public interest**.
 
 - UN High Comissioner for Refugees (UNHCR) 
     - to create synthetic microdata for refugee populations
@@ -746,10 +746,9 @@ shape: (2, 5)
 
 ```
 
+## zero-Concentrated DP (zCDP)
 
-## zero-Concentrated Differential Privacy (zCDP)
-
-- zCDP is a weaker definition of privacy than pure-DP, but stronger than approximate-DP.
+- a weaker definition of privacy than pure-DP, but stronger than approximate-DP
 - using zCDP causes OpenDP to change the noise distribution
 
 ```python
@@ -765,7 +764,7 @@ shape: (2, 5)
 
 ```
 
-## zero-Concentrated Differential Privacy
+## zero-Concentrated DP (zCDP)
 
 Re-running the previous query, but this time under zCDP:
 
@@ -909,8 +908,7 @@ True
 - Proofs demonstrate that the privacy guarantees hold.
 - [Proof document](https://docs.opendp.org/en/v0.13.0/proofs/rust/src/measurements/randomized_response/make_randomized_response_bool.pdf)
 
-
-## Building-Block Mechanisms
+## Extensibility: Core Mechanisms
 
 - additive noise
     - laplace, gaussian
@@ -926,14 +924,26 @@ True
 - sparse compressed histograms
 - private selection from private candidates
 
-## Supported Languages
 
-- Rust: building-block mechanisms, Polars, native transformations
-- Python: everything in Rust, Context API, plugins, PCA
-- R: everything in Rust except Polars
-- C: anything in Rust
+## Extensibility: Programming Framework
 
-## Plugins
+- [A Framework to Understand DP](https://docs.opendp.org/en/stable/theory/a-framework-to-understand-dp.html)
+
+- Measurement
+    - Input Domain
+    - Input Metric
+    - Output Measure
+    - Function
+    - Privacy Map
+- Transformation
+    - Input Domain
+    - Input Metric
+    - Output Domain
+    - Output Metric
+    - Function
+    - Stability Map
+
+## Extensibility: Plugins
 
 - Extend the library with your own algorithms implemented in Python or Rust
 - Python and Rust algorithms can be mixed together
@@ -944,10 +954,19 @@ True
 
 <img src="images/Hands-on-Differential-Privacy.png" alt="Book Cover" width="20%"/>
 
+## Extensibility: Supported Languages
+
+| language | functionality                                          |
+|----------|--------------------------------------------------------|
+| Rust     | core mechanisms, Polars, native transformations        |
+| Python   | Rust functionality, Context API, Plugins, scikit-learn |
+| R        | Rust functionality (except Polars)                     |
+| C        | Rust functionality                                     |
+
 ## Conclusion
 
 - Questions?
-- Join our slack!
-    opendp.org
+- Join our [Slack](https://join.slack.com/t/opendp/shared_invite/zt-1aca9bm7k-hG7olKz6CiGm8htI2lxE8w)
+- [opendp.org](opendp.org)
 
 <img src="images/opendp-website.png" alt="OpenDP Website" width="100%"/>

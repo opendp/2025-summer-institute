@@ -283,8 +283,8 @@ research and exploration in the public interest.</p>
 <div id="what-is-open-differential-privacy-opendp-1"
 class="slide section level2">
 <h1>What is Open Differential Privacy? (OpenDP)</h1>
-<p>OpenDP is a <em>community effort</em> to build a trustworthy and
-open-source suite of differential privacy tools that can be easily
+<p>OpenDP is a <strong>community effort</strong> to build a trustworthy
+and open-source suite of differential privacy tools that can be easily
 adopted by custodians of sensitive data to make data releases for
 research and exploration in the public interest.</p>
 <ul>
@@ -297,8 +297,8 @@ research and exploration in the public interest.</p>
 <div id="what-is-open-differential-privacy-opendp-2"
 class="slide section level2">
 <h1>What is Open Differential Privacy? (OpenDP)</h1>
-<p>OpenDP is a community effort to build a <em>trustworthy</em> and
-open-source suite of differential privacy tools that can be easily
+<p>OpenDP is a community effort to build a <strong>trustworthy</strong>
+and open-source suite of differential privacy tools that can be easily
 adopted by custodians of sensitive data to make data releases for
 research and exploration in the public interest.</p>
 <ul>
@@ -313,16 +313,19 @@ Programming Framework</li>
 class="slide section level2">
 <h1>What is Open Differential Privacy? (OpenDP)</h1>
 <p>OpenDP is a community effort to build a trustworthy and
-<em>open-source</em> suite of differential privacy tools that can be
-easily adopted by custodians of sensitive data to make data releases for
-research and exploration in the public interest.</p>
+<strong>open-source</strong> suite of differential privacy tools that
+can be easily adopted by custodians of sensitive data to make data
+releases for research and exploration in the public interest.</p>
 <ul>
-<li>GitHub: https://github.com/opendp
+<li>Repositories
 <ul>
-<li><em>OpenDP Library</em></li>
-<li>Tumult Analytics</li>
-<li>SmartNoise SDK</li>
-<li>DP Wizard</li>
+<li><a href="https://github.com/opendp/opendp"><em>OpenDP
+Library</em></a></li>
+<li><a href="https://github.com/opendp/tumult-analytics">Tumult
+Analytics</a></li>
+<li><a href="https://github.com/opendp/smartnoise-sdk">SmartNoise
+SDK</a></li>
+<li><a href="https://github.com/opendp/dp-wizard">DP Wizard</a></li>
 </ul></li>
 </ul>
 </div>
@@ -330,17 +333,17 @@ research and exploration in the public interest.</p>
 class="slide section level2">
 <h1>What is Open Differential Privacy? (OpenDP)</h1>
 <p>OpenDP is a community effort to build a trustworthy and open-source
-suite of differential privacy tools that can be <em>easily adopted</em>
-by custodians of sensitive data to make data releases for research and
-exploration in the public interest.</p>
+suite of differential privacy tools that can be <strong>easily
+adopted</strong> by custodians of sensitive data to make data releases
+for research and exploration in the public interest.</p>
 <ul>
-<li>Documentation:
+<li>Documentation
 <ul>
-<li><em>OpenDP Library</em>: https://docs.opendp.org</li>
-<li>Tumult Analytics:
-https://docs.tmlt.dev/platform/latest/index.html</li>
-<li>SmartNoise SDK: https://docs.smartnoise.org/</li>
-<li>DP Wizard: https://pypi.org/project/dp_wizard/</li>
+<li><a href="https://docs.opendp.org"><em>OpenDP Library</em></a></li>
+<li><a href="https://docs.tmlt.dev/platform/latest/index.html">Tumult
+Analytics</a></li>
+<li><a href="https://docs.smartnoise.org/">SmartNoise SDK</a></li>
+<li><a href="https://pypi.org/project/dp_wizard/">DP Wizard</a></li>
 </ul></li>
 </ul>
 </div>
@@ -349,8 +352,8 @@ class="slide section level2">
 <h1>What is Open Differential Privacy? (OpenDP)</h1>
 <p>OpenDP is a community effort to build a trustworthy and open-source
 suite of differential privacy tools that can be easily adopted by
-custodians of sensitive data to make <em>data releases</em> for research
-and exploration in the public interest.</p>
+custodians of sensitive data to make <strong>data releases</strong> for
+research and exploration in the public interest.</p>
 <ul>
 <li>descriptive statistics like counts, sums, means, quantiles</li>
 <li>descriptive statistics under grouping, like contingency tables,
@@ -364,8 +367,8 @@ class="slide section level2">
 <h1>What is Open Differential Privacy? (OpenDP)</h1>
 <p>OpenDP is a community effort to build a trustworthy and open-source
 suite of differential privacy tools that can be easily adopted by
-custodians of sensitive data to make data releases for <em>research and
-exploration in the public interest</em>.</p>
+custodians of sensitive data to make data releases for <strong>research
+and exploration in the public interest</strong>.</p>
 <ul>
 <li>UN High Comissioner for Refugees (UNHCR)
 <ul>
@@ -908,12 +911,11 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a h
 <span id="cb27-18"><a href="#cb27-18" tabindex="-1"></a>│ HWUSUAL ┆ Sum          ┆ Integer Laplace ┆ <span class="fl">6400.0</span> ┆ null      │</span>
 <span id="cb27-19"><a href="#cb27-19" tabindex="-1"></a>└─────────┴──────────────┴─────────────────┴────────┴───────────┘</span></code></pre></div>
 </div>
-<div id="zero-concentrated-differential-privacy-zcdp"
-class="slide section level2">
-<h1>zero-Concentrated Differential Privacy (zCDP)</h1>
+<div id="zero-concentrated-dp-zcdp" class="slide section level2">
+<h1>zero-Concentrated DP (zCDP)</h1>
 <ul>
-<li>zCDP is a weaker definition of privacy than pure-DP, but stronger
-than approximate-DP.</li>
+<li>a weaker definition of privacy than pure-DP, but stronger than
+approximate-DP</li>
 <li>using zCDP causes OpenDP to change the noise distribution</li>
 </ul>
 <div class="sourceCode" id="cb28"><pre
@@ -927,9 +929,8 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a h
 <span id="cb28-8"><a href="#cb28-8" tabindex="-1"></a>...     margins<span class="op">=</span>[dp.polars.Margin(max_length<span class="op">=</span><span class="dv">150_000</span> <span class="op">*</span> <span class="dv">36</span>)],</span>
 <span id="cb28-9"><a href="#cb28-9" tabindex="-1"></a>... )</span></code></pre></div>
 </div>
-<div id="zero-concentrated-differential-privacy"
-class="slide section level2">
-<h1>zero-Concentrated Differential Privacy</h1>
+<div id="zero-concentrated-dp-zcdp-1" class="slide section level2">
+<h1>zero-Concentrated DP (zCDP)</h1>
 <p>Re-running the previous query, but this time under zCDP:</p>
 <div class="sourceCode" id="cb29"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> quarterly <span class="op">=</span> [pl.col.QUARTER, pl.col.YEAR]</span>
@@ -1071,8 +1072,17 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a h
 <span id="cb33-14"><a href="#cb33-14" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> m_rr(<span class="va">True</span>) <span class="co"># doctest: +SKIP</span></span>
 <span id="cb33-15"><a href="#cb33-15" tabindex="-1"></a><span class="va">True</span></span></code></pre></div>
 </div>
-<div id="building-block-mechanisms" class="slide section level2">
-<h1>Building-Block Mechanisms</h1>
+<div id="randomized-response-proof" class="slide section level2">
+<h1>Randomized Response: Proof</h1>
+<ul>
+<li>Proofs demonstrate that the privacy guarantees hold.</li>
+<li><a
+href="https://docs.opendp.org/en/v0.13.0/proofs/rust/src/measurements/randomized_response/make_randomized_response_bool.pdf">Proof
+document</a></li>
+</ul>
+</div>
+<div id="extensibility-core-mechanisms" class="slide section level2">
+<h1>Extensibility: Core Mechanisms</h1>
 <ul>
 <li>additive noise
 <ul>
@@ -1095,23 +1105,43 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a h
 <li>private selection from private candidates</li>
 </ul>
 </div>
-<div id="supported-languages" class="slide section level2">
-<h1>Supported Languages</h1>
+<div id="extensibility-programming-framework"
+class="slide section level2">
+<h1>Extensibility: Programming Framework</h1>
 <ul>
-<li>Rust: building-block mechanisms, Polars, native transformations</li>
-<li>Python: everything in Rust, Context API, plugins, PCA</li>
-<li>R: everything in Rust except Polars</li>
-<li>C: anything in Rust</li>
+<li><p><a
+href="https://docs.opendp.org/en/stable/theory/a-framework-to-understand-dp.html">A
+Framework to Understand DP</a></p></li>
+<li><p>Measurement</p>
+<ul>
+<li>Input Domain</li>
+<li>Input Metric</li>
+<li>Output Measure</li>
+<li>Function</li>
+<li>Privacy Map</li>
+</ul></li>
+<li><p>Transformation</p>
+<ul>
+<li>Input Domain</li>
+<li>Input Metric</li>
+<li>Output Domain</li>
+<li>Output Metric</li>
+<li>Function</li>
+<li>Stability Map</li>
+</ul></li>
 </ul>
 </div>
-<div id="plugins" class="slide section level2">
-<h1>Plugins</h1>
+<div id="extensibility-plugins" class="slide section level2">
+<h1>Extensibility: Plugins</h1>
 <ul>
 <li>Extend the library with your own algorithms implemented in Python or
 Rust</li>
 <li>Python and Rust algorithms can be mixed together</li>
 <li>Examples:
 <ul>
+<li><a
+href="https://docs.opendp.org/en/nightly/api/user-guide/plugins/measurement.html">Constant
+Mechanism</a></li>
 <li><a
 href="https://docs.opendp.org/en/nightly/api/user-guide/plugins/theil-sen-regression.html">Theil-Sen
 Regression</a></li>
@@ -1120,11 +1150,43 @@ Regression</a></li>
 </ul>
 <p><img src="images/Hands-on-Differential-Privacy.png" alt="Book Cover" width="20%"/></p>
 </div>
+<div id="extensibility-supported-languages"
+class="slide section level2">
+<h1>Extensibility: Supported Languages</h1>
+<table>
+<thead>
+<tr>
+<th>language</th>
+<th>functionality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rust</td>
+<td>core mechanisms, Polars, native transformations</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>Rust functionality, Context API, Plugins, scikit-learn</td>
+</tr>
+<tr>
+<td>R</td>
+<td>Rust functionality (except Polars)</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Rust functionality</td>
+</tr>
+</tbody>
+</table>
+</div>
 <div id="conclusion" class="slide section level2">
 <h1>Conclusion</h1>
 <ul>
 <li>Questions?</li>
-<li>Join our slack! opendp.org</li>
+<li>Join our <a
+href="https://join.slack.com/t/opendp/shared_invite/zt-1aca9bm7k-hG7olKz6CiGm8htI2lxE8w">Slack</a></li>
+<li><a href="opendp.org">opendp.org</a></li>
 </ul>
 <p><img src="images/opendp-website.png" alt="OpenDP Website" width="100%"/></p>
 </div>
