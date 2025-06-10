@@ -1,7 +1,7 @@
 # massive-data-institute
-Slides for June 2025 talk on OpenDP and DP Wizard
+Slides for June 2025 talk on the OpenDP Project
 
-[Deployed on Github pages](https://opendp.github.io/massive-data-institute)
+[Deployed on Github pages](https://opendp.github.io/2025-summer-institute)
 
 Managing this in Github so that:
 - I can use doctest to confirm that all the examples work. 
