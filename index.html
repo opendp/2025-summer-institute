@@ -415,7 +415,9 @@ href="https://ec.europa.eu/eurostat/web/microdata/public-microdata/labour-force-
 Force Survey microdata</a> released by Eurostat surveys working hours of
 individuals in the European Union collected on a quarterly cadence</p>
 <div class="sourceCode" id="cb3"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> lfs_data <span class="op">=</span> pl.scan_csv(dp.examples.get_france_lfs_path(), ignore_errors<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> lfs_data <span class="op">=</span> pl.scan_csv(</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>...     dp.examples.get_france_lfs_path(), </span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>...     ignore_errors<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
 <p>Relevant columns:</p>
 <ul>
 <li>SEX: 1 | 2</li>
@@ -771,7 +773,17 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a h
 <span id="cb21-12"><a href="#cb21-12" tabindex="-1"></a>...     .agg(dp.<span class="bu">len</span>())</span>
 <span id="cb21-13"><a href="#cb21-13" tabindex="-1"></a>... )</span>
 <span id="cb21-14"><a href="#cb21-14" tabindex="-1"></a></span>
-<span id="cb21-15"><a href="#cb21-15" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df <span class="op">=</span> query_age_ilostat.release().collect()</span></code></pre></div>
+<span id="cb21-15"><a href="#cb21-15" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> query_age_ilostat.summarize()</span>
+<span id="cb21-16"><a href="#cb21-16" tabindex="-1"></a>shape: (<span class="dv">1</span>, <span class="dv">5</span>)</span>
+<span id="cb21-17"><a href="#cb21-17" tabindex="-1"></a>┌────────┬──────────────┬─────────────────┬───────┬───────────┐</span>
+<span id="cb21-18"><a href="#cb21-18" tabindex="-1"></a>│ column ┆ aggregate    ┆ distribution    ┆ scale ┆ threshold │</span>
+<span id="cb21-19"><a href="#cb21-19" tabindex="-1"></a>│ <span class="op">---</span>    ┆ <span class="op">---</span>          ┆ <span class="op">---</span>             ┆ <span class="op">---</span>   ┆ <span class="op">---</span>       │</span>
+<span id="cb21-20"><a href="#cb21-20" tabindex="-1"></a>│ <span class="bu">str</span>    ┆ <span class="bu">str</span>          ┆ <span class="bu">str</span>             ┆ f64   ┆ u32       │</span>
+<span id="cb21-21"><a href="#cb21-21" tabindex="-1"></a>╞════════╪══════════════╪═════════════════╪═══════╪═══════════╡</span>
+<span id="cb21-22"><a href="#cb21-22" tabindex="-1"></a>│ <span class="bu">len</span>    ┆ Frame Length ┆ Integer Laplace ┆ <span class="fl">144.0</span> ┆ <span class="dv">2773</span>      │</span>
+<span id="cb21-23"><a href="#cb21-23" tabindex="-1"></a>└────────┴──────────────┴─────────────────┴───────┴───────────┘</span>
+<span id="cb21-24"><a href="#cb21-24" tabindex="-1"></a></span>
+<span id="cb21-25"><a href="#cb21-25" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df <span class="op">=</span> query_age_ilostat.release().collect()</span></code></pre></div>
 <p><img src="images/stable_keys.png" alt="Stable Keys" width="800"/></p>
 </div>
 <div id="polars-grouping-with-explicit-keys"
@@ -784,17 +796,25 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a h
 <span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a>...     privacy_unit<span class="op">=</span>dp.unit_of(contributions<span class="op">=</span><span class="dv">36</span>),</span>
 <span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a>...     privacy_loss<span class="op">=</span>dp.loss_of(epsilon<span class="op">=</span><span class="fl">1.0</span> <span class="op">/</span> <span class="dv">4</span>),</span>
 <span id="cb22-5"><a href="#cb22-5" tabindex="-1"></a>...     split_evenly_over<span class="op">=</span><span class="dv">1</span>,</span>
-<span id="cb22-6"><a href="#cb22-6" tabindex="-1"></a>... )</span>
-<span id="cb22-7"><a href="#cb22-7" tabindex="-1"></a></span>
-<span id="cb22-8"><a href="#cb22-8" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> query_age_ilostat <span class="op">=</span> (</span>
-<span id="cb22-9"><a href="#cb22-9" tabindex="-1"></a>...     context.query()</span>
-<span id="cb22-10"><a href="#cb22-10" tabindex="-1"></a>...     .group_by(<span class="st">&quot;AGE&quot;</span>, <span class="st">&quot;ILOSTAT&quot;</span>)</span>
-<span id="cb22-11"><a href="#cb22-11" tabindex="-1"></a>...     .agg(dp.<span class="bu">len</span>())</span>
-<span id="cb22-12"><a href="#cb22-12" tabindex="-1"></a>...     .with_keys(df[<span class="st">&quot;AGE&quot;</span>, <span class="st">&quot;ILOSTAT&quot;</span>])</span>
-<span id="cb22-13"><a href="#cb22-13" tabindex="-1"></a>... )</span>
-<span id="cb22-14"><a href="#cb22-14" tabindex="-1"></a></span>
-<span id="cb22-15"><a href="#cb22-15" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> df <span class="op">=</span> query_age_ilostat.release().collect() <span class="co"># doctest: +SKIP</span></span></code></pre></div>
-<p><img src="images/explicit_keys.png" alt="Explicit Keys" width="800"/></p>
+<span id="cb22-6"><a href="#cb22-6" tabindex="-1"></a>...     margins<span class="op">=</span>[dp.polars.Margin(max_length<span class="op">=</span><span class="dv">150_000</span> <span class="op">*</span> <span class="dv">36</span>)],</span>
+<span id="cb22-7"><a href="#cb22-7" tabindex="-1"></a>... )</span>
+<span id="cb22-8"><a href="#cb22-8" tabindex="-1"></a></span>
+<span id="cb22-9"><a href="#cb22-9" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> query_age_ilostat <span class="op">=</span> (</span>
+<span id="cb22-10"><a href="#cb22-10" tabindex="-1"></a>...     context.query()</span>
+<span id="cb22-11"><a href="#cb22-11" tabindex="-1"></a>...     .group_by(<span class="st">&quot;AGE&quot;</span>, <span class="st">&quot;ILOSTAT&quot;</span>)</span>
+<span id="cb22-12"><a href="#cb22-12" tabindex="-1"></a>...     .agg(pl.col.HWUSUAL.fill_null(<span class="dv">35</span>).fill_nan(<span class="dv">35</span>).dp.<span class="bu">sum</span>((<span class="dv">0</span>, <span class="dv">80</span>)))</span>
+<span id="cb22-13"><a href="#cb22-13" tabindex="-1"></a>...     .with_keys(df[<span class="st">&quot;AGE&quot;</span>, <span class="st">&quot;ILOSTAT&quot;</span>])</span>
+<span id="cb22-14"><a href="#cb22-14" tabindex="-1"></a>... )</span>
+<span id="cb22-15"><a href="#cb22-15" tabindex="-1"></a></span>
+<span id="cb22-16"><a href="#cb22-16" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> query_age_ilostat.summarize()</span>
+<span id="cb22-17"><a href="#cb22-17" tabindex="-1"></a>shape: (<span class="dv">1</span>, <span class="dv">4</span>)</span>
+<span id="cb22-18"><a href="#cb22-18" tabindex="-1"></a>┌─────────┬───────────┬───────────────┬──────────────┐</span>
+<span id="cb22-19"><a href="#cb22-19" tabindex="-1"></a>│ column  ┆ aggregate ┆ distribution  ┆ scale        │</span>
+<span id="cb22-20"><a href="#cb22-20" tabindex="-1"></a>│ <span class="op">---</span>     ┆ <span class="op">---</span>       ┆ <span class="op">---</span>           ┆ <span class="op">---</span>          │</span>
+<span id="cb22-21"><a href="#cb22-21" tabindex="-1"></a>│ <span class="bu">str</span>     ┆ <span class="bu">str</span>       ┆ <span class="bu">str</span>           ┆ f64          │</span>
+<span id="cb22-22"><a href="#cb22-22" tabindex="-1"></a>╞═════════╪═══════════╪═══════════════╪══════════════╡</span>
+<span id="cb22-23"><a href="#cb22-23" tabindex="-1"></a>│ HWUSUAL ┆ Sum       ┆ Float Laplace ┆ <span class="fl">11578.014393</span> │</span>
+<span id="cb22-24"><a href="#cb22-24" tabindex="-1"></a>└─────────┴───────────┴───────────────┴──────────────┘</span></code></pre></div>
 </div>
 <div id="polars-pre-processing" class="slide section level2">
 <h1>Polars Pre-Processing</h1>
@@ -913,7 +933,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a h
 <span id="cb27-19"><a href="#cb27-19" tabindex="-1"></a>└─────────┴──────────────┴─────────────────┴────────┴───────────┘</span></code></pre></div>
 </div>
 <div id="zero-concentrated-dp-zcdp" class="slide section level2">
-<h1>zero-Concentrated DP (zCDP)</h1>
+<h1>Zero-Concentrated DP (zCDP)</h1>
 <ul>
 <li>a weaker definition of privacy than pure-DP, but stronger than
 approximate-DP</li>
@@ -931,7 +951,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a h
 <span id="cb28-9"><a href="#cb28-9" tabindex="-1"></a>... )</span></code></pre></div>
 </div>
 <div id="zero-concentrated-dp-zcdp-1" class="slide section level2">
-<h1>zero-Concentrated DP (zCDP)</h1>
+<h1>Zero-Concentrated DP (zCDP)</h1>
 <p>Re-running the previous query, but this time under zCDP:</p>
 <div class="sourceCode" id="cb29"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> quarterly <span class="op">=</span> [pl.col.QUARTER, pl.col.YEAR]</span>

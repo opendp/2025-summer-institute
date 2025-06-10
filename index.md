@@ -215,7 +215,9 @@ First install and import the required dependencies:
 surveys working hours of individuals in the European Union collected on a quarterly cadence
 
 ```python
->>> lfs_data = pl.scan_csv(dp.examples.get_france_lfs_path(), ignore_errors=True)
+>>> lfs_data = pl.scan_csv(
+...     dp.examples.get_france_lfs_path(), 
+...     ignore_errors=True)
 
 ```
 
