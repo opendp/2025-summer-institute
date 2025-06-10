@@ -18,18 +18,18 @@ author: Michael Shoemate, Privacy Architect for the OpenDP Project
 
 ## What is Privacy?
 
-> Keeping information specific to an individual secret, privileged or protected.
+> Keeping personal information secret, privileged or protected.
 
 ## What is Privacy?
 
-> Keeping information specific to an individual secret, privileged or protected.
+> Keeping personal information secret, privileged or protected.
 
 - Secret to whom?
 - Under what conditions can information be shared?
 
 ## What is Privacy?
 
-> Keeping information specific to an individual secret, privileged or protected.
+> Keeping personal information secret, privileged or protected.
 
 - Data Privacy Practices
   - Encryption
@@ -39,7 +39,7 @@ author: Michael Shoemate, Privacy Architect for the OpenDP Project
 
 ## What is Privacy?
 
-> Keeping information specific to an individual secret, privileged or protected.
+> Keeping personal information secret, privileged or protected.
 
 - Privacy Enhancing Technologies
   - Input Privacy
@@ -126,9 +126,9 @@ that can be easily adopted by custodians of sensitive data to make data releases
 OpenDP is a **community effort** to build a trustworthy and open-source suite of differential privacy tools 
 that can be easily adopted by custodians of sensitive data to make data releases for research and exploration in the public interest.
 
-- Slack Workspace
-- Community Working Groups
-- OpenDP Community Meeting
+- [Slack Workspace](https://join.slack.com/t/opendp/shared_invite/zt-1aca9bm7k-hG7olKz6CiGm8htI2lxE8w)
+- [Community Working Groups](https://opendp.org/working-groups)
+- [OpenDP Community Meeting](https://opendp.org/event/2025-opendp-community-meeting)
 - Software is open to contribution
 
 ## What is Open Differential Privacy? (OpenDP)
@@ -910,19 +910,19 @@ True
 
 ## Extensibility: Core Mechanisms
 
-- additive noise
+- [additive noise](https://docs.opendp.org/en/nightly/api/user-guide/measurements/additive-noise-mechanisms.html)
     - laplace, gaussian
     - vector, scalar
     - integer, float, bigint
-- thresholded noise
+- [thresholded noise](https://docs.opendp.org/en/nightly/api/user-guide/measurements/thresholded-noise-mechanisms.html)
     - laplace, gaussian
     - integer, float, bigint
-- exponential mechanism
-- canonical noise mechanism
-- randomized response
+- [exponential mechanism](https://docs.opendp.org/en/nightly/api/python/opendp.measurements.html#opendp.measurements.make_report_noisy_max_gumbel)
+- [canonical noise mechanism](https://docs.opendp.org/en/nightly/api/user-guide/measurements/canonical-noise-mechanism.html)
+- [randomized response](https://docs.opendp.org/en/nightly/api/user-guide/measurements/randomized-response.html)
     - bool, categorical, bitvector
-- sparse compressed histograms
-- private selection from private candidates
+- [sparse compressed histograms](https://docs.opendp.org/en/nightly/api/python/opendp.measurements.html#opendp.measurements.make_alp_queryable)
+- [private selection from private candidates](https://docs.opendp.org/en/nightly/api/python/opendp.combinators.html#opendp.combinators.make_select_private_candidate)
 
 
 ## Extensibility: Programming Framework
@@ -962,6 +962,34 @@ True
 | Python   | Rust functionality, Context API, Plugins, scikit-learn |
 | R        | Rust functionality (except Polars)                     |
 | C        | Rust functionality                                     |
+
+
+## Wrapping Up: Usability Study Recruitment
+Researchers at the University of Vermont are conducting a remote usability study to evaluate
+two different interfaces for privacy-enhancing data science tools. 
+We are looking for participants who
+
+1. Are at least 18 years old
+2. Reside in the US
+3. Can read and speak English
+4. Have prior data analysis experience with Python
+
+In this study, you will be asked to:
+
+1. Watch/read a tutorial about a data science tool interface
+2. Complete a series of data analysis tasks using the interface on a shared screen
+3. Speak out aloud your thought process while you complete the tasks
+4. Complete post-task survey and interview
+
+All study procedures will take approximately 1 to 1.5 hours via a Microsoft Teams meeting, the
+study session will be screen and audio recorded. After completion, you will receive a $40
+electronic gift card of your choice (e.g., Amazon.com, Walmart) as a thank-you for your time.
+If interested, please fill out [this online eligibility survey](https://qualtrics.uvm.edu/survey-builder/SV_dnaZyLvHAwnJaIK/edit?SurveyID=SV_dnaZyLvH
+AwnJaIK). 
+
+If you are selected to participate, we will reach out to you via email typically within 2 weeks.
+If you have additional questions about participating in this study, please contact the principal
+investigator, Onyinye Dibia by email Onyinye.Dibia@uvm.edu
 
 ## Conclusion
 
