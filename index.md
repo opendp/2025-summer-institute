@@ -594,6 +594,16 @@ shape: (3, 4)
 ...     .agg(dp.len())
 ... )
 
+>>> query_age_ilostat.summarize()
+shape: (1, 5)
+┌────────┬──────────────┬─────────────────┬───────┬───────────┐
+│ column ┆ aggregate    ┆ distribution    ┆ scale ┆ threshold │
+│ ---    ┆ ---          ┆ ---             ┆ ---   ┆ ---       │
+│ str    ┆ str          ┆ str             ┆ f64   ┆ u32       │
+╞════════╪══════════════╪═════════════════╪═══════╪═══════════╡
+│ len    ┆ Frame Length ┆ Integer Laplace ┆ 144.0 ┆ 2773      │
+└────────┴──────────────┴─────────────────┴───────┴───────────┘
+
 >>> df = query_age_ilostat.release().collect()
 
 ```
@@ -610,19 +620,27 @@ Reusing the key-set released in the previous query:
 ...     privacy_unit=dp.unit_of(contributions=36),
 ...     privacy_loss=dp.loss_of(epsilon=1.0 / 4),
 ...     split_evenly_over=1,
+...     margins=[dp.polars.Margin(max_length=150_000 * 36)],
 ... )
 
 >>> query_age_ilostat = (
 ...     context.query()
 ...     .group_by("AGE", "ILOSTAT")
-...     .agg(dp.len())
+...     .agg(pl.col.HWUSUAL.fill_null(35).fill_nan(35).dp.sum((0, 80)))
 ...     .with_keys(df["AGE", "ILOSTAT"])
 ... )
 
->>> df = query_age_ilostat.release().collect() # doctest: +SKIP
+>>> query_age_ilostat.summarize()
+shape: (1, 4)
+┌─────────┬───────────┬───────────────┬──────────────┐
+│ column  ┆ aggregate ┆ distribution  ┆ scale        │
+│ ---     ┆ ---       ┆ ---           ┆ ---          │
+│ str     ┆ str       ┆ str           ┆ f64          │
+╞═════════╪═══════════╪═══════════════╪══════════════╡
+│ HWUSUAL ┆ Sum       ┆ Float Laplace ┆ 11578.014393 │
+└─────────┴───────────┴───────────────┴──────────────┘
 
 ```
-<img src="images/explicit_keys.png" alt="Explicit Keys" width="800"/>
 
 
 ## Polars Pre-Processing
@@ -746,7 +764,7 @@ shape: (2, 5)
 
 ```
 
-## zero-Concentrated DP (zCDP)
+## Zero-Concentrated DP (zCDP)
 
 - a weaker definition of privacy than pure-DP, but stronger than approximate-DP
 - using zCDP causes OpenDP to change the noise distribution
@@ -764,7 +782,7 @@ shape: (2, 5)
 
 ```
 
-## zero-Concentrated DP (zCDP)
+## Zero-Concentrated DP (zCDP)
 
 Re-running the previous query, but this time under zCDP:
 
